@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Form} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import Navigation from "./Navigation"
 
 export default class Home extends Component {
@@ -7,7 +7,10 @@ export default class Home extends Component {
         super(props);
         this.state = {
           posts: [],
-          
+          title:"",
+          body:"",
+          userId:"",
+          mypost:{},
         };
       }
 
@@ -23,41 +26,48 @@ componentDidMount() {
         .catch(err=>console.log(err))
     }
 
-componentDidMount2() {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
+handleChange = (e) => {
+  e.preventDefault();
+  //console.log(this.state);
+  this.setState({[e.target.name]: e.target.value});
+  
+}
+
+handleSubmit = (e) =>{
+  e.preventDefault();
+  
+  var body = JSON.stringify({
+    title: this.state.title,
+    body: this.state.body,
+    userId: this.state.userId,
   })
-  .then(response => response.json())
-  .then(response => {
-    this.setState({
-        mypost: response
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body,
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
       })
+      .then(response => response.json())
+      .then(json => console.log(json))
+          
       
-    })
-    .catch(err=>console.log(err))
-}
+        .catch(err=>console.log(err))
 
-myfunction(title, body, userId) {
+  this.props.history.push('/home');
 
-            
-}
+  };
 
 
     render() {
-        
+      console.log(this.state.mypost)
         const posts = this.state.posts.map((post, index)=>{
             return (
                 <div key={index}>
-                <div>
-                <h1>{post.title}</h1>   
+                <div className="customPosts">
+                <h1>{post.title}</h1> 
+                </div>  
+                <div className="customPosts">
                 <p>{post.body}</p>
                 </div>
                 </div>
@@ -66,28 +76,33 @@ myfunction(title, body, userId) {
         return (
             <div>
             <Navigation/>
+            
             {posts}
-            <div>
-            <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            
+            <div className="customMyPost">
+            <Form onSubmit={e => this.handleSubmit(e)}>
+            <Form.Group>
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="title" placeholder="" />
+                <Form.Control id="title" name="title" value={this.state.title} type="title" placeholder="title" onChange={e => this.handleChange(e) } />
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Group>
                 <Form.Label>userId</Form.Label>
-                <Form.Control type="title" placeholder="" />
+                <Form.Control id="userId" name="userId" value={this.state.userId} type="userId" placeholder="User Id" onChange={e => this.handleChange(e) } />
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Group>
                 <Form.Label>Post here...</Form.Label>
-                <Form.Control as="textarea" rows="3" />
+                <Form.Control id="body" name="body" value={this.state.body} as="textarea" rows="3" placeholder="" onChange={e => this.handleChange(e) } />
             </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
             </Form>
             </div>
-            <div>
+            
             <footer>
             <p>&copy; 2020  | All Rights Reserved</p>
             </footer>
-            </div>
+            
             </div>
         )
     

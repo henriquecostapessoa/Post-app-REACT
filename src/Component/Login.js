@@ -11,7 +11,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-             <Form>
+             <Form className="customForm">
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />

@@ -18,7 +18,7 @@ export default class Signin extends Component {
         console.log(this.props)
         return (
             <div>
-                 <Form>
+                 <Form className="customSignin">
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
@@ -33,7 +33,7 @@ export default class Signin extends Component {
 
                 <Form.Group controlId="formGridAddress1">
                     <Form.Label>Address</Form.Label>
-                    <Form.Control placeholder="1234 Main St" />
+                    <Form.Control placeholder="Rua" />
                 </Form.Group>
 
                 <Form.Row>

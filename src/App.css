@@ -27,5 +27,48 @@
 
 #link1 {
   color: black;
-  
+}
+
+.customPosts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 200px;
+  margin-left: 200px;
+  text-align: center;
+}
+
+.customForm {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 1200px;
+}
+
+.customSignin {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 800px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.customMyPost {
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-bottom: 15px;
+  text-align: center;
 }

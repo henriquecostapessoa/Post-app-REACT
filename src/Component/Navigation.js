@@ -5,8 +5,16 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-            <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">POSTS Web Site</Navbar.Brand>
+            <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar.Brand href="#home">
+            <img
+                alt=""
+                src="/images/social.png"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+            />{' '}
+                MY POSTS</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
