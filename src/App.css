@@ -25,6 +25,7 @@
   border-radius: 5px;
 }
 
-.container .btn:hover {
-  background-color: black;
+#link1 {
+  color: black;
+  
 }

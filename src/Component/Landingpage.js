@@ -1,15 +1,13 @@
 import React from 'react'
-import {Carousel, Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
+import {Link} from "react-router-dom"
 export default function Landingpage() {
 
-  handleclick = (img) => {
-    this.setState({modalimage: img, openmodal: true})
-  }
     return (
         <div>
-          <div class="container">
-            <img class="bg-image" src="/images/15_formas-posts-criativos_Img_destacada.png" alt="Trulli"/>
-            <Button class="btn" variant="warning">CLIQUE AQUI</Button> 
+          <div className="container">
+            <img className="bg-image" src="/images/15_formas-posts-criativos_Img_destacada.png" alt="Trulli"/>
+            <Button className="btn" variant="warning"> <Link id="link1"to="/home">CLIQUE AQUI</Link> </Button> 
           </div>
         </div>
     )
