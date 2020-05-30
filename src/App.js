@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-import Navigation from "./Component/Navigation"  
+import './App.css'; 
 import Landingpage from './Component/Landingpage';
 import Home from './Component/Home';
 import {BrowserRouter, Route} from 'react-router-dom'
