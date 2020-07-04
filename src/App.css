@@ -1,14 +1,16 @@
 /* Make the image responsive */
 .bg-image {
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin-left: 15%;
+  margin-top: 50%;
 }
 
 /* Style the button and place it in the middle of the container/image */
 .btn2 {
   position: absolute;
-  top: 80%;
+  width: 50%;
+  height: auto;
+  top: 60%;
   left: 65%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
